@@ -3,6 +3,8 @@ This package enable python communication with the software suite Pias. The commu
 
 # Examples
 
+## Adding a physical plane
+
 ```python
 from piascomms.internal_geometry.shape_manipulation.xml_request import AddPhysicalPlane, RequestFactory
 from piascomms.layout_properties import PlaneData
@@ -19,6 +21,10 @@ plane_info = {0: PlaneInfo("Longitudinal bulkhead", 11.5 / 2, [(2, 5), (1, 5), (
         1: PlaneInfo("Frame", 96, [(5, 4), (5, 3), (6, 3), (6, 4), (5, 4)]),
         2: PlaneInfo("Deck", 10, [(1, 4), (2, 4), (2, 3), (1, 3), (1, 4)])}
 
+# planes types
+# 0 == longitudinal bulkhead
+# 1 == Frame
+# 2 == Deck
 
 plane_type = 0
 request = AddPhysicalPlane(planes=planes,
