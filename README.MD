@@ -3,7 +3,7 @@ This package enable python communication with the software suite Pias. The commu
 
 # Examples
 
-'''
+```python
 from piascomms.internal_geometry.shape_manipulation.xml_request import AddPhysicalPlane, RequestFactory
 from piascomms.layout_properties import PlaneData
 from pathlib import Path
@@ -36,7 +36,7 @@ reply.to_line()
 for line in reply.message.recieved_lines:
     print(line.data)
 
-'''
+```
 
 # Developer sources
 
