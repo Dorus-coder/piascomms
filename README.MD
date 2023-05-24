@@ -45,7 +45,7 @@ for line in reply.message.recieved_lines:
 ```
 ## Removing physical planes
 
-```
+```python
 from piascomms.client import Client
 from piascomms.internal_geometry.shape_manipulation.xml_request import RemovePhysicalPlane
 
@@ -58,7 +58,7 @@ client.send_from_stream(data)
 
 ## Export ship layout and write xml file
 
-```
+```python
 from piascomms.internal_geometry.shape_manipulation.xml_request import RequestFactory
 from piascomms.client import Client, TranslateReply
 from pathlib import Path
@@ -78,6 +78,35 @@ xml_path = Path("recieved_data.xml")
 
 ```
 
+## Save the ship layout in Pias
+
+
+```python
+save = RequestFactory()
+save.request_type = "save_ship_layout"
+data_for_client = save.to_xml_string()
+
+client = Client()
+client.send_from_stream(data_for_client)
+```
+
+## Request compartment volume and print to the console
+
+````python
+
+volume = RequestVolume()
+volume.name = "compartment name"
+
+client = Client()
+client.send_from_stream(volume.to_xml_string())
+
+reply = TranslateReply(client.cache_recieved_bytes)
+reply.to_line()
+
+for line in reply.message.recieved_lines:
+        print(line.data)
+
+```
 # Developer sources
 
 https://packaging.python.org/en/latest/tutorials/packaging-projects/

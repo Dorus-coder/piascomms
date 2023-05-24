@@ -21,8 +21,7 @@ def single(num):
     volume.name = num
     volume.request_type = 'Compute_volume_integrals'
     # volume.id = numcd pias    
-    volume_string = volume.to_xml_string()
-    client.send_from_stream(volume_string)
+    client.send_from_stream(volume.to_xml_string())
     reply = TranslateReply(client.cache_recieved_bytes)
     reply.to_line()
 
