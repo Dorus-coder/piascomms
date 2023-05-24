@@ -43,6 +43,40 @@ for line in reply.message.recieved_lines:
     print(line.data)
 
 ```
+## Removing physical planes
+
+'''
+from piascomms.client import Client
+from piascomms.internal_geometry.shape_manipulation.xml_request import RemovePhysicalPlane
+
+
+client = Client()
+rplane = RemovePhysicalPlane(physical_plane_id=1)
+data = rplane.to_xml_string()
+client.send_from_stream(data)
+'''
+
+## Export ship layout and write xml file
+
+'''
+from piascomms.internal_geometry.shape_manipulation.xml_request import RequestFactory
+from piascomms.client import Client, TranslateReply
+from pathlib import Path
+
+
+ship_layout = RequestFactory()
+ship_layout.request_type = "Export_ship_layout"
+ship_layout_request_string = ship_layout.to_xml_string()
+
+client = Client()
+client.send_from_stream(ship_layout_request_string)
+
+xml_path = Path("recieved_data.xml")
+    with xml_path.open('w') as outfile:
+        for line in reply.message.recieved_lines:
+            outfile.write(line.data)
+
+'''
 
 # Developer sources
 
