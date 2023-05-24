@@ -82,6 +82,9 @@ xml_path = Path("recieved_data.xml")
 
 
 ```python
+from piascomms.internal_geometry.shape_manipulation.xml_request import RequestFactory
+from piascomms.client import Client
+
 save = RequestFactory()
 save.request_type = "save_ship_layout"
 data_for_client = save.to_xml_string()
@@ -93,6 +96,8 @@ client.send_from_stream(data_for_client)
 ## Request compartment volume and print to the console
 
 ````python
+from piascomms.internal_geometry.shape_manipulation.xml_request import RequestVolume
+from piascomms.client import Client, TranslateReply
 
 volume = RequestVolume()
 volume.name = "compartment name"
