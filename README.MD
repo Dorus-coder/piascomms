@@ -135,7 +135,7 @@ client.send_from_stream(data_for_client)
 
 ## Request compartment volume and print to the console
 
-````python
+```python
 from piascomms.internal_geometry.shape_manipulation.xml_request import RequestVolume
 from piascomms.client import Client, TranslateReply
 
@@ -150,5 +150,4 @@ reply.to_line()
 
 for line in reply.message.recieved_lines:
         print(line.data)
-
 ```
