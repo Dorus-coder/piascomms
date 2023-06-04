@@ -1,6 +1,46 @@
 # piascomms
 This package enable python communication with the software suite Pias. The communication module uses Python Socket programming to send XML data with the tcp/ip protocol.
 
+# Installation
+The package is not yet registerd on pypi.org. However, the piascomms package will be available through pypi.org in the foreseeable future.
+
+In the mean time, users can install the package in the following way, assuming they have Python and pip installed.
+
+1. In the terminal
+``` bash
+cd <repo of the project>
+```
+2. install and create a virtual environment with virtualenv or any other environment/package manager
+``` bash
+pip install virtualenv
+```
+``` bash
+virtualenv --python="path_to_python_executable version <= python3.10" venv
+```
+3. Activate virtualenv in the terminal
+``` bash
+venv\Script\activate
+```
+4. clone piascomms in the Lib
+``` bash
+cd venv\lib
+```
+``` bash
+git clone https://github.com/Dorus-coder/piascomms.git
+```
+5. choose between editable install (development) or build (production)
+    
+    5.1 editable install
+   ``` bash
+    pip install -e .
+    ```
+    5.2 build package
+    ``` bash
+    pip install build
+    ```
+    ``` bash
+    py -m build
+    ```
 # Examples
 
 ## Adding a physical plane
@@ -112,7 +152,3 @@ for line in reply.message.recieved_lines:
         print(line.data)
 
 ```
-# Developer sources
-
-https://packaging.python.org/en/latest/tutorials/packaging-projects/
-https://packaging.python.org/en/latest/tutorials/installing-packages/
